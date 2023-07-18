@@ -13,4 +13,7 @@ public class LookForInformation {
                         .thenHit(Keys.ENTER)
         );
     }
+
 }
+
+
