@@ -1,7 +1,7 @@
-Feature: Hacer clic en un objeto en la página de DemoBlaze
+Feature: Compra DemoBlaze
 
-  Scenario: Hacer clic en un objeto específico
-    Given Sergey I navigate to demoblaze
+  Scenario: Compra
+    Given User I navigate to demoblaze
     When he I click on the object
-    And he I click on the object
+
 

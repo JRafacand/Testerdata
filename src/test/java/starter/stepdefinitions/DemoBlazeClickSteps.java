@@ -2,23 +2,11 @@ package starter.stepdefinitions;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Given;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.actions.HtmlAlert;
-import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
-import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import starter.navigation.NavigateTo;
 import net.serenitybdd.screenplay.actions.Switch;
-
-
 import static net.serenitybdd.core.Serenity.getDriver;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.setMaxStackTraceElementsDisplayed;
 
 public class DemoBlazeClickSteps {
     @Given("{actor} I navigate to demoblaze")
@@ -34,9 +22,10 @@ public class DemoBlazeClickSteps {
         // Realizar clic en el objeto deseado
         driver.findElement(By.xpath("//a[contains(text(),'Samsung galaxy s6')]")).click();
         driver.findElement(By.xpath("//a[contains(text(),'Add to cart')]")).click();
+        driver.findElement(By.xpath("//a[@id='nava']")).click();
 
-        theActorInTheSpotlight().attemptsTo(
-                SetImplicitTimeout.to(Duration.ofSeconds(10))
+        actor.attemptsTo(
+                Switch.toAlert().andAccept()
         );
 
     }
