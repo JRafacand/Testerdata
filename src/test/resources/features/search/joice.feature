@@ -2,6 +2,7 @@ Feature: Compra DemoBlaze
 
   Scenario: Compra
     Given User I navigate to demoblaze
-    When he I click on the object
+    When he I select a product
+    And he I proceed to checkout
 
 
