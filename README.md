@@ -1,3 +1,19 @@
+# Instruccions 
+
+To install karate and Serenity, follow the steps below:
+1 Install IntelliJ IDEA 2023.1.4 (Community Edition), or failing that VSC, https://www.jetbrains.com/es-es/idea/download/?section=windows
+2. Install Jdk jdk-11.0.2_windows-x64_bin
+   2 Install gradle-8.2.1 https://gradle.org/install/
+3. Install Maven https://maven.apache.org/download.cgi.
+4. Install Git https://git-scm.com/ (these help us to control versions).
+5. Configure global variables, you must add them in Edit Environment Variables
+6. Install Cucumber Plugins for Java.
+7. Clone, Fork the following repository
+   https://github.com/serenity-bdd/serenity-junit-screenplay-starter, this repository contains the SerenityJjunit Screenplay base
+8. For the purpose of this Challenge, I attach the task https://github.com/JRafacand/nttdata
+8. You can follow me at https://github.com/JRafacand
+
+
 # Getting started with Serenity and Cucumber
 
 Serenity BDD is a library that makes it easier to write high quality automated acceptance tests, with powerful reporting and living documentation features. It has strong support for both web testing with Selenium, and API testing using RestAssured.
