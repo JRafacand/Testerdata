@@ -1,6 +1,7 @@
 package starter.stepdefinitions;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,16 +9,21 @@ import starter.Validate.FieldValidator;
 
 public class DataValidationSteps {
 
-    private FieldValidator fieldValidator= new FieldValidator();
+    private FieldValidator fieldValidator = new FieldValidator();
     private String enteredValue;
-    private WebDriver driver;
-    @Given("Ingreso el {string} campo name ")
-    public void enterValue(String value){
-        enteredValue=value;
+
+
+    @Given("Ingreso el {string} campo name")
+    public void enterValue(String name) {
+        System.out.println("Valor recibido: " + name);
+        enteredValue = name;
     }
 
-    public void validateName(){
-        WebElement campo=driver.findElement(By.xpath("//input[@id='name']"));
-        fieldValidator.validateName(campo, enteredValue);
+    @When("Valido el campo nombre")
+    public void validateName() {
+        System.out.println("Valor recibido: " + enteredValue);
+        /*WebElement campo = driver1.findElement(By.xpath("//input[@id='name']"));
+        System.out.println("Valor recibido: " + campo);*/
+        fieldValidator.validateName(enteredValue);
     }
 }
