@@ -6,7 +6,7 @@ import net.serenitybdd.screenplay.actions.Open;
 
 public class NavigateTo {
     public static Performable theDemoBlazeHomePage() {
-        return Task.where("{0} opens the Wikipedia home page",
+        return Task.where("opens the Demoblaze home page",
                 Open.browserOn().the(DemoblazeHomePage.class));
     }
 }

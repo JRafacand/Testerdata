@@ -1,8 +1,8 @@
 Feature: Compra DemoBlaze
 
   Scenario: Compra Choise
-    Given User I navigate to demoblaze
-    And he I proceed to checkout
+    Given I navigate to demoblaze
+    And I proceed to checkout
 
   Scenario: Validar datos
     Given Ingreso el "<name>" campo name

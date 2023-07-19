@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import net.thucydides.core.annotations.Steps;
 
 public class DemoBlazeClickSteps {
-    @Given("{actor} I navigate to demoblaze")
+    @Given("I navigate to demoblaze")
 
     public void clickThings(Actor actor) {
         actor.wasAbleTo(NavigateTo.theDemoBlazeHomePage());
@@ -30,8 +30,8 @@ public class DemoBlazeClickSteps {
         this.driver = getDriver();
     }
 
-    @When("{actor} I select a product")
-    public void clickOnObject(Actor actor) {
+    @When("I select a product")
+    public void clickOnObject() {
         // Realizar clic en el objeto deseado
         driver.findElement(By.xpath("//a[contains(text(),'Samsung galaxy s6')]")).click();
         driver.findElement(By.xpath("//a[contains(text(),'Add to cart')]")).click();
@@ -66,18 +66,4 @@ public class DemoBlazeClickSteps {
     }
 }
 
-public class DataValidationSteps {
-
-    private String enteredValue;
-    private WebDriver driver;
-    @Given("Ingreso el {string} campo name ")
-    public void enterValue(String value){
-    enteredValue=value;
-    }
-    FieldValidator fieldValidator= new FieldValidator();
-    public void validateName(){
-        WebElement campo=driver.findElement(By.xpath("//input[@id='name']"));
-        fieldValidator.validateName(campo, enteredValue);
-    }
-}
 
