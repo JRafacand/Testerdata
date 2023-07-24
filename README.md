@@ -1,4 +1,4 @@
-# Instruccions 
+## Instruccions 
 
 To install karate and Serenity, follow the steps below:
 1 Install IntelliJ IDEA 2023.1.4 (Community Edition), or failing that VSC, https://www.jetbrains.com/es-es/idea/download/?section=windows.
@@ -13,7 +13,17 @@ To install karate and Serenity, follow the steps below:
    https://github.com/serenity-bdd/serenity-junit-screenplay-starter, this repository contains the SerenityJjunit Screenplay base
 9. For the purpose of this Challenge, I attach the task https://github.com/JRafacand/nttdata
 10. You can follow me at https://github.com/JRafacand
+## Executing the tests
+To run the sample project, you can either just run the `CucumberTestSuite` test runner class, or run either `mvn verify` or `gradle test` from the command line.
 
+By default, the tests will run using Chrome. You can run them in Firefox by overriding the `driver` system property, e.g.
+```json
+$ mvn clean verify -Ddriver=chrome
+```
+Or
+```json
+$ gradle clean test -Pdriver=chrome
+```
 
 # Getting started with Serenity and Cucumber
 
@@ -205,17 +215,7 @@ public class WikipediaArticle {
 
 The main advantage of the approach used in this example is not in the lines of code written, although Serenity does reduce a lot of the boilerplate code that you would normally need to write in a web test. The real advantage is in the use of many small, stable classes, each of which focuses on a single job. This application of the _Single Responsibility Principle_ goes a long way to making the test code more stable, easier to understand, and easier to maintain.
 
-## Executing the tests
-To run the sample project, you can either just run the `CucumberTestSuite` test runner class, or run either `mvn verify` or `gradle test` from the command line.
 
-By default, the tests will run using Chrome. You can run them in Firefox by overriding the `driver` system property, e.g.
-```json
-$ mvn clean verify -Ddriver=firefox
-```
-Or
-```json
-$ gradle clean test -Pdriver=firefox
-```
 
 The test results will be recorded in the `target/site/serenity` directory.
 
