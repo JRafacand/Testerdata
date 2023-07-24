@@ -1,21 +1,12 @@
 package starter.stepdefinitions;
-import starter.Validate.FieldValidator;
-
-import io.cucumber.java.en.When;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import starter.navigation.NavigateTo;
-
 import static net.serenitybdd.core.Serenity.getDriver;
 
-import java.util.regex.Pattern;
-
-import net.thucydides.core.annotations.Steps;
 
 public class DemoBlazeClickSteps {
     @Given("{actor} I navigate to demoblaze")
@@ -64,7 +55,7 @@ public class DemoBlazeClickSteps {
         driver.findElement(By.xpath("//a[contains(text(),'Add to cart')]")).click();
         driver.findElement(By.xpath("//a[@id='nava']")).click();
         driver.findElement(By.xpath("//a[contains(text(),'Cart')]")).click();
-        driver.findElement(By.xpath("//button[contains(text(),'Place Order')]")).click();
+        ;
 
 
     }

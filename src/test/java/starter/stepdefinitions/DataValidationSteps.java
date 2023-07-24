@@ -1,15 +1,13 @@
 package starter.stepdefinitions;
-
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import starter.Validate.FieldValidator;
-import starter.Validate.FieldValidator.ValidationCredit;
+import starter.navigation.NavigateTo;
 
 import static net.serenitybdd.core.Serenity.getDriver;
 
@@ -19,62 +17,46 @@ public class DataValidationSteps {
     private String enteredValue;
     private WebDriver driver1;
 
-    private String meses;
     public DataValidationSteps() {
         this.driver1 = getDriver();
     }
 
-    @Given("Ingreso el {string} campo Name")
-    public void enterValue(String name) {
+    @Given("{actor} Ingreso el {string} campo Name")
+    public void enterValue(Actor actor, String name) {
+        WebElement campo = driver1.findElement(By.xpath("//input[@id='name']"));
         enteredValue = name;
     }
-
-    @And("Ingreso el {string} campo Country")
-    public void enterCountry(String name) {
-        enteredValue = name;
-    }
-
-    @And("Ingreso el {string} campo City")
-    public void enterCity(String name) {
-        enteredValue = name;
-    }
-
-    @And("Ingreso el campo {string} Credit Card")
-    public void Credit(String name) {
-        enteredValue = name;
-    }
-
-    @Then("Valido el campo Name")
-    public void validateName() {
+    @Then("{actor} Valido el campo {string}")
+    public void validateName(Actor actor, String enteredValue) {
         WebElement campo = driver1.findElement(By.xpath("//input[@id='name']"));
         fieldValidator.validateName(campo, enteredValue);
     }
 
-    @Then("Valido el campo country")
-    public void validateCountry() {
+    @Then("{actor} Valido ingreso country {string}")
+    public void validateCountry(Actor actor, String enteredValue) {
         WebElement campo = driver1.findElement(By.xpath("//input[@id='country']"));
         fieldValidator.validateName(campo, enteredValue);
     }
 
-    @Then("Valido ingreso ciudad")
-    public void validateCity() {
+    @Then("{actor} Valido ingreso city {string}")
+    public void validateCity(Actor actor, String enteredValue) {
         WebElement campo = driver1.findElement(By.xpath("//input[@id='city']"));
         fieldValidator.validateName(campo, enteredValue);
     }
 
-    @Then("Valido ingreso tarjeta")
-    public void validateCredit() {
+    @Then("{actor} valido ingreso tarjeta {string}")
+    public void validateCredit(Actor actor, String enteredValue) {
         WebElement campo = driver1.findElement(By.xpath("//input[@id='card']"));
         fieldValidator.validateCredit(campo, enteredValue);
     }
 
-    @Then("Ingreso Mes")
-    public void validateMounth() {
+    @Then("{actor} Ingreso Mes")
+    public void validateMounth(Actor actor) {
       driver1.findElement(By.xpath("//input[@id='month']")).sendKeys("Abril");
 
     }
-    @Then("Valido año {int}")
-    public void ingresoValorEnCampoAnio(int valor) {
+    @Then("{actor} Valido año {int}")
+    public void ingresoValorEnCampoAnio(Actor actor, int valor) {
         if (esAnioValido(valor)) {
             Serenity.recordReportData().withTitle("Validación de campo").andContents("El campo contiene un Años Válido.");
         } else {

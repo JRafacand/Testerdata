@@ -5,15 +5,12 @@ Feature: Elegir Productos DemoBlaze
     And he I select a product
 
   Scenario: Validar datos
-    Given Ingreso el "Juan Perez" campo Name
-    And Ingreso el "Ecuador" campo Country
-    And Ingreso el "Quito" campo City
-    And Ingreso el campo "9876-5432-1098-7654" Credit Card
-    Then Valido el campo Name
-    Then Valido el campo country
-    Then Valido ingreso ciudad
-    Then Valido ingreso tarjeta
-    Then Ingreso Mes
-    Then Valido año 2023
+    Given User Ingreso el "Juan Perez" campo Name
+    Then he Valido el campo "Juan Perez"
+    Then he Valido ingreso country "Ecuador"
+    Then he Valido ingreso city "Quito"
+    Then he valido ingreso tarjeta "9876-5432-1098-7654"
+    Then he Ingreso Mes
+    Then he Valido año 2023
     Then Finalizar Compra
 

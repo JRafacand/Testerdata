@@ -1,8 +1,5 @@
 package starter.Validate;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import starter.stepdefinitions.DataValidationSteps;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.WebElement;
 
