@@ -23,7 +23,7 @@ public class FieldValidator {
         String valorIngresado = campo.getAttribute("value");
         if (ValidationCredit.validateCredit(valorIngresado)) {
             Serenity.recordReportData().withTitle("Validación de campo").andContents("El campo debe ser una Tarjeta Validad.");
-            throw new AssertionError("El campo debe ser una Tarjeta Validad.");
+            throw new AssertionError("El campo es una Tarjeta Validad.");
         } else {
             Serenity.recordReportData().withTitle("Validación de campo").andContents("El campo no es una Tarjeta Valida.");
         }
@@ -31,7 +31,7 @@ public class FieldValidator {
 
     public static class ValidationUtils {
         public static boolean validateName(String name) {
-            return name.matches("^[A-Za-z]+$");
+            return name.matches("^[A-Za-z]+$^[A-Za-z]+$");
         }
     }
 

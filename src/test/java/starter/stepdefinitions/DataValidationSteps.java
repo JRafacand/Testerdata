@@ -11,21 +11,22 @@ import starter.navigation.NavigateTo;
 
 import static net.serenitybdd.core.Serenity.getDriver;
 
+
 public class DataValidationSteps {
 
     private FieldValidator fieldValidator = new FieldValidator();
     private String enteredValue;
     private WebDriver driver1;
-
     public DataValidationSteps() {
         this.driver1 = getDriver();
     }
-
-    @Given("{actor} Ingreso el {string} campo Name")
-    public void enterValue(Actor actor, String name) {
-        WebElement campo = driver1.findElement(By.xpath("//input[@id='name']"));
-        enteredValue = name;
+    @Given("{actor} I navigate to demoblaze compra")
+    public void clickorder(Actor actor) throws InterruptedException {
+        actor.wasAbleTo(NavigateTo.navigateToCartPage.theCartPage());
+        Thread.sleep(2000);
+        driver1.findElement(By.xpath("//button[contains(text(),'Place Order')]")).click();
     }
+
     @Then("{actor} Valido el campo {string}")
     public void validateName(Actor actor, String enteredValue) {
         WebElement campo = driver1.findElement(By.xpath("//input[@id='name']"));
@@ -64,15 +65,21 @@ public class DataValidationSteps {
             throw new AssertionError("El campo no es un Año válido.");
         }
     }
-
-    // Método para validar si un año es válido (por ejemplo, entre 1800 y 2100)
+    // Método para validar si un año es válido (por ejemplo, entre 2010 y 2100)
     private boolean esAnioValido(int anio) {
-        return anio >= 1800 && anio <= 2100; // Puedes ajustar los límites según tus necesidades
+        return anio >= 2010 && anio <= 2100; // Puedes ajustar los límites según tus necesidades
     }
-    @Then("Finalizar Compra")
-    public void endBuy() {
+    @Then("{actor} Finalizar Compra")
+    public void endBuy(Actor actor) throws InterruptedException {
         driver1.findElement(By.xpath("//button[contains(text(),'Purchase')]")).click();
-
+        Thread.sleep(1000);
+    }
+    @Then("{actor} navigate demoblaze back")
+    public void navigateBack(Actor actor) throws InterruptedException {
+        driver1.findElement(By.xpath("//button[contains(text(),'OK')]")).click();
+        Thread.sleep(1000);
+        driver1.findElement(By.xpath("//a[contains(text(),'Home')]")).click();
+        Thread.sleep(1000);
     }
 }
 

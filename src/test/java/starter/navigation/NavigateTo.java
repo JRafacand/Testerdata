@@ -9,7 +9,14 @@ import org.openqa.selenium.WebDriver;
 public class NavigateTo {
     private static WebDriver driver1;
     public static Performable theDemoBlazeHomePage() {
-        return Task.where("{0}opens the Demoblaze home page",
+        return Task.where("{0} opens the Demoblaze home page",
                 Open.browserOn().the(DemoblazeHomePage.class));
+    }
+
+    public static class navigateToCartPage {
+        public static Performable theCartPage() {
+            return Task.where("{0} opens the Cart page",
+                    Open.url("https://www.demoblaze.com/cart.html"));
+        }
     }
 }
