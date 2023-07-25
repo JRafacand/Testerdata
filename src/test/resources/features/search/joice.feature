@@ -5,7 +5,7 @@ Feature: Elegir Productos DemoBlaze
     And he I select a product
 
 
-  Scenario: Validar datos
+  Scenario: Validar datos y comprar
     Given User I navigate to demoblaze compra
     Then he Valido el campo "Juan Perez"
     Then he Valido ingreso country "Ecuador Sudamerica"
