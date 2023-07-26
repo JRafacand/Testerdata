@@ -1,7 +1,7 @@
 ## Instruccions 
 
-To install karate and Serenity, follow the steps below:
-1 Install IntelliJ IDEA 2023.1.4 (Community Edition), or failing that VSC, https://www.jetbrains.com/es-es/idea/download/?section=windows.
+## To install karate and Serenity, follow the steps below:
+1. Install IntelliJ IDEA 2023.1.4 (Community Edition), or failing that VSC, https://www.jetbrains.com/es-es/idea/download/?section=windows.
 2. Install Jdk jdk-11.0.2_windows-x64_bin
 3. Install gradle-8.2.1 https://gradle.org/install/
 4. Install Maven https://maven.apache.org/download.cgi.
